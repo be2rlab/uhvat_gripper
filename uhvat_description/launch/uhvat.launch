@@ -7,13 +7,13 @@
 	<param name="robot_description" command="$(find xacro)/xacro '$(find uhvat_description)/robots/uhvat2fingers.urdf.xacro' origin_xyz:=$(arg origin_xyz) origin_rpy:=$(arg origin_rpy)"/>
 
 	<node name="joint_state_publisher_gui" pkg="joint_state_publisher_gui" type="joint_state_publisher_gui">
-		<param name="use_gui" value="true"/>
-		<rosparam param="source_list">["poses/joint_states"]</rosparam>
+		<param name="use_gui" value="false"/>
+		<rosparam param="source_list">["uhvat/joint_states"]</rosparam>
 	</node>
 
 	<node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" />
 	
 	<node name="rviz" pkg="rviz" type="rviz" args="-d $(find uhvat_description)/config/config.rviz" required="true" />
-	<node pkg="tf" type="static_transform_publisher" name="map" args="0.0 0.0 0.0 0.0 0.0 0.0 map world 100"/>
+	<node pkg="tf" type="static_transform_publisher" name="map" args="0.0 0.0 0.0 0.0 0.0 0.0 map base_gripper_link 100"/>
 
 </launch>

@@ -10,9 +10,9 @@
   <xacro:arg name="origin_xyz" default="0 0 0"/>
   <xacro:arg name="origin_rpy" default="0 0 0"/>
 
-  <link name="world" />
+  <link name="base_gripper_link" />
 
-  <xacro:uhvat name="uhvat" parent="world">
+  <xacro:uhvat name="uhvat" parent="base_gripper_link">
     <origin xyz="$(arg origin_xyz)" rpy="$(arg origin_rpy)" />
   </xacro:uhvat>
 
