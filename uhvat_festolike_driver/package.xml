@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>uhvat_festolike_driver</name>
+  <version>0.0.0</version>
+  <description>The uhvat_festolike_driver package</description>
+
+  <maintainer email="kika@example.com">kika</maintainer>
+  <license>Apache 2.0</license>
+
+  <buildtool_depend>catkin</buildtool_depend>
+  <depend>roscpp</depend>
+  <depend>std_msgs</depend>
+  <depend>dynamixel_sdk</depend>
+  <build_depend>message_generation</build_depend>
+  <exec_depend>message_runtime</exec_depend>
+
+</package>

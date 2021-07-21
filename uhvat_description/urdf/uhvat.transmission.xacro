@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+ 
+ 	<!-- reduction ratio doesn't affect the model-->
+	<!-- reduction ratio must not to be 0-->
+  <xacro:macro name="uhvat_transmission" params="name">
+
+    <transmission name="${name}_trans_1">
+      <!-- <robotNamespace>/${robot_name}</robotNamespace> -->
+      <type>transmission_interface/SimpleTransmission</type>
+      <actuator name="${name}_motor_1">
+        <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+        <mechanicalReduction>1</mechanicalReduction>
+      </actuator>
+      <joint name="${name}_joint_1">
+        <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      </joint>
+    </transmission>
+
+    <transmission name="${name}_trans_2">
+      <!-- <robotNamespace>/${robot_name}</robotNamespace> -->
+      <type>transmission_interface/SimpleTransmission</type>
+      <actuator name="${name}_motor_2">
+        <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+        <mechanicalReduction>1</mechanicalReduction>
+      </actuator>
+      <joint name="${name}_joint_2">
+        <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      </joint>
+    </transmission>
+
+  </xacro:macro>
+</robot>
