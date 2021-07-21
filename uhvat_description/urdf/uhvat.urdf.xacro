@@ -49,7 +49,7 @@
     <joint name="${name}_joint_1" type="revolute">
       <origin
         xyz="-0.045 -0.035 0"
-        rpy="0 0 ${PI/2}" />
+        rpy="0 0 ${PI}" />
       <parent
         link="${name}_link_0" />
       <child
@@ -78,7 +78,7 @@
             filename="package://uhvat_description/meshes/festolike_finger.stl" 
             scale="0.0013 0.0013 0.002" />
         </geometry>
-        <material name="Grey"/>
+        <material name="Green"/>
       </visual>
     </link>
 
@@ -87,7 +87,7 @@
     <joint name="${name}_joint_2" type="revolute">
       <origin
         xyz="-0.045 0.035 0"
-        rpy="0 0 ${PI/2}" />
+        rpy="0 0 0" />
       <parent
         link="${name}_link_0" />
       <child
@@ -116,7 +116,7 @@
             filename="package://uhvat_description/meshes/festolike_finger.stl" 
             scale="0.0013 0.0013 0.002" />
         </geometry>
-        <material name="Grey"/>
+        <material name="Orange"/>
       </visual>
     </link>
 

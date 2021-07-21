@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <package format="2">
-  <name>uhvat_festolike_driver</name>
+  <name>uhvat_ros_driver</name>
   <version>0.0.0</version>
   <description>The uhvat_festolike_driver package</description>
 

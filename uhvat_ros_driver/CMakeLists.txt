@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.0.2)
-project(uhvat_festolike_driver)
+project(uhvat_ros_driver)
 
 add_compile_options(-std=c++11)
 
