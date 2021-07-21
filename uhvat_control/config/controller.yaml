@@ -5,11 +5,11 @@
     publish_rate: 200
 
   # сontrollers for singular joint ------------------------------------
-  joint1_torque_controller:
+  uhvat_joint1_torque_controller:
     type: effort_controllers/JointEffortController
-    joint: arm_1_joint_1
+    joint: uhvat_joint_1
     pid: {p: 1000, i: 0.5, d: 10}
-  joint2_torque_controller:
+  uhvat_joint2_torque_controller:
     type: effort_controllers/JointEffortController
-    joint: arm_1_joint_2
+    joint: uhvat_joint_2
     pid: {p: 1000, i: 0.5, d: 10}

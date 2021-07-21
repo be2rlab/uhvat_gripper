@@ -29,13 +29,19 @@ svn export https://github.com/ROBOTIS-GIT/DynamixelSDK.git/trunk/ros/dynamixel_s
 Clone this repository
 
 ```
-git clone https://github.com/be2rlab/uhvat_festolike_driver.git
+git clone https://github.com/be2rlab/uhvat_gripper.git
 ```
 
 Build it
 
 ```
 catkin build
+```
+
+Check for the rights
+
+```
+sudo chmod a+rw /dev/ttyUSB0
 ```
 
 ## How to use

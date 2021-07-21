@@ -4,6 +4,7 @@ import rospy
 from dynamixel_sdk import *
 from uhvat_festolike_driver.srv import *
 
+from sensor_msgs.msg import JointState
 from std_srvs.srv import Empty
 
 import sys, tty, termios
@@ -65,6 +66,9 @@ class GripperDriver(object):
         rospy.Service('gripper_reboot', Empty, self.__reboot)
         # rospy.Service('gripper_change_mode', Empty, self.__change_mode)
         
+        # state publisher
+        self.pub = rospy.Publisher('/uhvat/joint_states', JointState, queue_size=10)
+
         self.mode = 'position'
 
     def init(self):
@@ -128,10 +132,13 @@ class GripperDriver(object):
                 print("Servomotors has been successfully connected")
 
 
-    def __get_gripper_state(self, req):
-        dxl_present_position, dxl_comm_result, dxl_error = packetHandler.read4ByteTxRx(portHandler, req.id, ADDR_PRESENT_POSITION)
-        print("Present Position of ID %s = %s" % (req.id, dxl_present_position))
-        return dxl_present_position
+    def __get_gripper_state(self):
+        
+        l_dxl_present_position, l_dxl_comm_result, l_dxl_error = packetHandler.read4ByteTxRx(portHandler, LEFT_DXL_ID, ADDR_PRESENT_POSITION)
+        r_dxl_present_position, r_dxl_comm_result, r_dxl_error = packetHandler.read4ByteTxRx(portHandler, RIGHT_DXL_ID, ADDR_PRESENT_POSITION)
+
+        # print("Present Position of ID %s = %s" % (req.id, dxl_present_position))
+        return l_dxl_present_position, r_dxl_present_position
 
     def __set_gripper_state(self, req):
         if req.state == 0:   # wide opened
@@ -191,7 +198,24 @@ class GripperDriver(object):
         while not rospy.is_shutdown():
             # dxl_present_position, dxl_comm_result, dxl_error = packetHandler.read4ByteTxRx(portHandler, LEFT_DXL_ID, ADDR_PRESENT_POSITION)
             # print(dxl_present_position)
+            try:
+                left_pos, right_pos = self.__get_gripper_state()
+                print(left_pos, right_pos)
+
+                msg = JointState()
+                msg.header.stamp.secs = rospy.get_rostime().secs
+                msg.header.stamp.nsecs = rospy.get_rostime().nsecs
+                msg.name.append('uhvat_joint_1')
+                msg.name.append('uhvat_joint_2')
+                msg.position.append(1)
+                msg.position.append(-1)
+
+                self.pub.publish(msg)
+            except Exception as e:
+                print(e)
+
             rate.sleep()
+
 
 
 def main():
