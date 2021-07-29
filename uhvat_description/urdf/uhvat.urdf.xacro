@@ -42,6 +42,14 @@
         </geometry>
         <material name="Grey"/>
       </visual>
+      <collision>
+        <origin xyz="0 0 0" rpy="0 0 0" />
+        <geometry>
+          <mesh
+            filename="package://uhvat_description/meshes/motor_mount.stl" 
+            scale="0.001 0.001 0.001" />
+        </geometry>
+      </collision>
     </link>
 
 
@@ -80,6 +88,14 @@
         </geometry>
         <material name="Green"/>
       </visual>
+      <collision>
+        <origin xyz="0.015 0.025 -0.02" rpy="0 0 0" />
+        <geometry>
+          <mesh
+            filename="package://uhvat_description/meshes/festolike_finger.stl" 
+            scale="0.0013 0.0013 0.002" />
+        </geometry>
+      </collision>      
     </link>
 
 
@@ -118,6 +134,14 @@
         </geometry>
         <material name="Orange"/>
       </visual>
+      <collision>
+        <origin xyz="0.025 0.025 -0.02" rpy="0 0 0" />
+        <geometry>
+          <mesh
+            filename="package://uhvat_description/meshes/festolike_finger.stl" 
+            scale="0.0013 0.0013 0.002" />
+        </geometry>
+      </collision>
     </link>
 
 
