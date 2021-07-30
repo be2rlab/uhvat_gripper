@@ -3,7 +3,7 @@ import os, time
 import rospy
 import math
 from dynamixel_sdk import *
-from uhvat_festolike_driver.srv import *
+from uhvat_ros_driver.srv import *
 
 from sensor_msgs.msg import JointState
 from std_srvs.srv import Empty
