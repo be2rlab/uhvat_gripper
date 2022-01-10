@@ -59,7 +59,7 @@ pip install pyserial
 
 ```
 roscore
-rosrun uhvat_festolike_driver driver_node.py
+rosrun uhvat_ros_driver driver_node.py
 ```
 
 4. Set `state`
