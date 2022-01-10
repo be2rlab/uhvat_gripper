@@ -20,7 +20,7 @@ Go to you own catkin workspace
 roscd && cd ../src
 ```
 
-Get the dynamixel SDK
+Get the dynamixel SDK inside package (only you have problems with already included SDK)
 
 ```
 svn export https://github.com/ROBOTIS-GIT/DynamixelSDK.git/trunk/ros/dynamixel_sdk
@@ -36,12 +36,19 @@ Build it
 
 ```
 catkin build
+source devel/setup.bash
 ```
 
 Check for the rights
 
 ```
 sudo chmod a+rw /dev/ttyUSB0
+```
+
+Check the pySerial library for python (required for ros driver)
+
+```
+pip install pyserial
 ```
 
 ## How to use
