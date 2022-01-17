@@ -20,12 +20,6 @@ Go to you own catkin workspace
 roscd && cd ../src
 ```
 
-Get the dynamixel SDK
-
-```
-svn export https://github.com/ROBOTIS-GIT/DynamixelSDK.git/trunk/ros/dynamixel_sdk
-```
-
 Clone this repository
 
 ```
@@ -36,6 +30,7 @@ Build it
 
 ```
 catkin build
+source devel/setup.bash
 ```
 
 Check for the rights
@@ -43,6 +38,19 @@ Check for the rights
 ```
 sudo chmod a+rw /dev/ttyUSB0
 ```
+
+Check the pySerial library for python (required for ros driver)
+
+```
+pip install pyserial
+```
+
+Get the dynamixel SDK inside package (only you have problems with already included SDK)
+
+```
+svn export https://github.com/ROBOTIS-GIT/DynamixelSDK.git/trunk/ros/dynamixel_sdk
+```
+
 
 ## How to use
 
@@ -52,7 +60,7 @@ sudo chmod a+rw /dev/ttyUSB0
 
 ```
 roscore
-rosrun uhvat_festolike_driver driver_node.py
+rosrun uhvat_ros_driver driver_node.py
 ```
 
 4. Set `state`
